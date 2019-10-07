@@ -16,7 +16,7 @@ public class PlayFabLogin : MonoBehaviour
             // 这个操蛋的玩意儿很重要，每个项目都不用，这是由PlayFab网站给你分配的，必须设置。
             // 
             // 地址在：https://developer.playfab.com/en-US/my-games
-            PlayFabSettings.TitleId = "C5F82"; // Please change this value to your own titleId from PlayFab Game Manager
+            PlayFabSettings.TitleId = "5E6B4"; // Please change this value to your own titleId from PlayFab Game Manager
         }
     }
 

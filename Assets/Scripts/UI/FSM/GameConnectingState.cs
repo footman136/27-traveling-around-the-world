@@ -17,7 +17,7 @@ public class GameConnectingState : FsmBaseState<ConnectionStateMachine, Connecti
 
     public override void Enter()
     {
-        _panelConnecting = UIManager.CreatePanel(UIManager.Instance.RootLobby, "", "UI/Logo/PanelConnecting");
+        _panelConnecting = UIManager.CreatePanel(UIManager.Instance.RootLogo, "", "UI/Logo/PanelConnecting");
         
         // 使用PlayFab链接后台数据库
         // clientWorker一启动，就会连接服务器

@@ -16,7 +16,7 @@ public class GamePlayFabLoginState : FsmBaseState<ConnectionStateMachine, Connec
 
     public override void Enter()
     {
-        _panelConnecting = UIManager.CreatePanel(UIManager.Instance.RootLobby, "", "UI/Logo/PanelConnecting");
+        _panelConnecting = UIManager.CreatePanel(UIManager.Instance.RootLogo, "", "UI/Logo/PanelConnecting");
     }
 
     public override void Tick()
