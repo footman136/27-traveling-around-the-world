@@ -1,0 +1,44 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Assets.Gamelogic.FSM;
+
+public class GameConnectedState : FsmBaseState<ConnectionStateMachine, ConnectionFSMStateEnum.StateEnum>
+{
+    private readonly ConnectionManager _connection;
+
+    public GameConnectedState(ConnectionStateMachine owner, ConnectionManager connection) : base(owner)
+    {
+        _connection = connection;
+    }
+
+    private bool _bFirst;
+    public override void Enter()
+    {
+        var go = UIManager.CreatePanel(UIManager.Instance.RootInGame, "", "UI/InGame/PanelCommandMenu");
+        if (go != null)
+        {
+//            UIManager.Instance.CommandMenu = go.GetComponent<PanelCommandMenu>();
+//            UIManager.Instance.CommandMenu.enabled = true; // 不知道是谁总是禁止它，所以不得不每次手动打开
+//            if (UIManager.Instance.CommandMenu == null)
+//            {
+//                Debug.LogError("GameConnectedState Enter() - In Game Command Menu creation is failed!!!");
+//            }
+        }
+
+        _bFirst = true;
+    }
+
+    public override void Tick()
+    {
+        if (_bFirst)
+        { // 只运行一帧，就切换到下个状态了
+            ConnectionManager.Instance.StateMachine.TriggerTransition(ConnectionFSMStateEnum.StateEnum.PLAYING);
+            _bFirst = false;
+        }
+    }
+
+    public override void Exit(bool disabled)
+    {
+    }
+}
